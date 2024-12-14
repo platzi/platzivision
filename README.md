@@ -8,21 +8,23 @@
 
 Durante el curso de OpenAI API utilizamos la versión `1.55.3` de la librería `openai` para Python.
 
-## Ramas de las clases
+## 🌲 Commits y carpetas de las clases
 
-| Clase                                                      | Rama                        |
-| ---------------------------------------------------------- | --------------------------- |
-| ChatCompletion API: API para chat                          | `ChatCompletionAPI`         |
-| ToolsAPI: Herramientas en ChatCompletion API               | `ToolsAPI`                  |
-| Image API: Procesamiento de imágenes en ChatCompletion API | `Image`                     |
-| DALL·E 3 API: Generación de imágenes utilizando DALL·E 3   | `DALLE3`                    |
-| BatchAPI: Lotes de solicitudes                             | `BatchAPI`                  |
-| Assistants: Asistentes de OpenAI                           | `Assistants`                |
-| Transcripción y síntesis de voz                            | `SpeechToText-TextToSpeech` |
+| Clase                                                      | Commit                      | Carpeta                      |
+| ---------------------------------------------------------- | --------------------------- | ---------------------------- |
+| ChatCompletion API: API para chat                          | `ChatCompletionAPI`         | `/ChatCompletionAPI`         |
+| ToolsAPI: Herramientas en ChatCompletion API               | `ToolsAPI`                  | `/ToolsAPI`                  |
+| Image API: Procesamiento de imágenes en ChatCompletion API | `Images`                    | `/Images`                    |
+| DALL·E 3 API: Generación de imágenes utilizando DALL·E 3   | `Dalle3`                    | `/Dalle3`                    |
+| BatchAPI: Lotes de solicitudes                             | `Batch`                     | `/Batch`                     |
+| Assistants: Asistentes de OpenAI                           | `Assistants`                | `/Assistants`                |
+| Transcripción y síntesis de voz                            | `SpeechToText-TextToSpeech` | `/SpeechToText-TextToSpeech` |
 
-## Notas sobre cada clase
+De esta forma, cada commit representa una clase del curso, si deseas navegar a una parte específica del curso, puedes hacerlo usando el comando `git checkout <commit>`.
 
-A continuación encontrarás una lista de notas sobre cada clase del curso.
+## 📝 Notas sobre cada clase
+
+A continuación encontrarás una lista de notas sobre cada clase del curso:
 
 ### ChatCompletion API
 
