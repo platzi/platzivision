@@ -1,57 +1,79 @@
-<h1 align="center">💡 Curso OpenAI API 💻</h1>
+<h1 align="center">💡 PlatziVision 💻</h1>
 
 <p align="center">
-  Repositorio del Curso de OpenAI API
+  PlatziVision es un chatbot que puede responder preguntas en tiempo real, analizar múltiples imágenes y generar imágenes utilizando DALL·E 3
 </p>
 
-👋 ¡Hola! Este repositorio contiene todos los ejercicios prácticos realizados con OpenAI API.
+<img src="./.github/cover.png" alt="PlatziVision" width="100%">
 
-Durante el curso de OpenAI API utilizamos la versión `1.55.3` de la librería `openai` para Python.
+👋 ¡Hola! Este repositorio contiene el proyecto final del curso de OpenAI API. Puedes empezar [instalando el proyecto](#instalación) y luego [revisar los commits por clase](#commits-por-clase).
 
-## 🌲 Commits y carpetas de las clases
+## 🚀 Instalación
 
-| Clase                                                      | Commit                      | Carpeta                      |
-| ---------------------------------------------------------- | --------------------------- | ---------------------------- |
-| ChatCompletion API: API para chat                          | `ChatCompletionAPI`         | `/ChatCompletionAPI`         |
-| ToolsAPI: Herramientas en ChatCompletion API               | `ToolsAPI`                  | `/ToolsAPI`                  |
-| Image API: Procesamiento de imágenes en ChatCompletion API | `Images`                    | `/Images`                    |
-| DALL·E 3 API: Generación de imágenes utilizando DALL·E 3   | `Dalle3`                    | `/Dalle3`                    |
-| BatchAPI: Lotes de solicitudes                             | `Batch`                     | `/Batch`                     |
-| Assistants: Asistentes de OpenAI                           | `Assistants`                | `/Assistants`                |
-| Transcripción y síntesis de voz                            | `SpeechToText-TextToSpeech` | `/SpeechToText-TextToSpeech` |
+1. Clona el repositorio
 
-De esta forma, cada commit representa una clase del curso, si deseas navegar a una parte específica del curso, puedes hacerlo usando el comando `git checkout <commit>`.
+```bash
+git clone https://github.com/platzi/platzivision.git
+```
 
-## 📝 Notas sobre cada clase
+2. Instala las dependencias de la interfaz web e inicia el servidor
 
-A continuación encontrarás una lista de notas sobre cada clase del curso:
+Empieza desde la carpeta `platzi-vision-ui`
 
-### ChatCompletion API
+```bash
+cd platzi-vision-ui
+npm install
+npm run dev
+```
 
-La **ChatCompletion API** de OpenAI permite interactuar con los modelos de lenguaje mediante un flujo de conversación basado en mensajes. Este enfoque utiliza un historial de interacciones donde los mensajes son clasificados como del asistente, del usuario o de un sistema (como instrucción hacia el asistente).
+3. Crea el entorno virtual para la API
 
-### Tools API
+Empieza desde la carpeta `platzi-vision-api`
 
-La **ToolsAPI** de OpenAI extiende la funcionalidad de los modelos al permitirles interactuar con herramientas externas dentro de una conversación. Actualmente, estas herramientas se limitan a **funciones** específicas definidas por el usuario, pero el soporte futuro incluirá capacidades avanzadas como **Code Interpreter** y **File Search**.
+```bash
+cd platzi-vision-api
+python -m venv env
+source env/bin/activate
+```
 
-### Image API
+4. Instala las dependencias de la API
 
-OpenAI ahora nos permite integrar el procesamiento de imágenes directamente dentro de las interacciones con la **ChatCompletion API**. Gracias a esto podemos incluir imágenes en las conversaciones, y el asistente puede interpretarlas.
+Recuerda que usamos la librería OpenAI en su versión 1.55.3.
 
-### DALL·E 3 API
+```bash
+pip install -r requirements.txt
+```
 
-La **DALL·E 3 API** proporciona acceso al modelo generativo de imágenes más avanzado de OpenAI, que permite crear imágenes a partir de prompts. También podemos generar imágenes a través de la API de OpenAI.
+5. Inicia el servidor de la API
 
-### BatchAPI
+```bash
+python app.py
+```
 
-La **BatchAPI** de OpenAI optimiza los costos y la eficiencia al procesar múltiples solicitudes de forma asincrónica. Ofrece un descuento del 50% en comparación con las solicitudes estándar, con la condición de que las respuestas se completen dentro de un plazo máximo de 24 horas. Esto es ideal para tareas que no requieren respuestas inmediatas.
+¡Listo! Ahora tenemos el servidor web corriendo en http://localhost:3000 y el servidor de la API en http://127.0.0.1:5000. Con esto ya podemos empezar con las tareas pendientes para completar el proyecto:
 
-### Assistants (Beta)
+1. Procesar los mensajes de la interfaz
+2. Retornar la respuesta vía streaming
+3. Agregar soporte de imágenes
+4. Agregar una función de generación de imágenes
 
-La funcionalidad de **Assistants** en OpenAI permite crear asistentes virtuales que interactúan con los modelos de lenguaje de forma distinta a la **ChatCompletion API**. Los asistentes soportan hilos de conversación persistentes y tienen la capacidad de integrar herramientas externas como **Code Interpreter** y **File Search**, lo que los hace ideales para casos de uso avanzados.
+## 🎄 Commits por clase
 
-### Speech-to-Text y Text-to-Speech
+Puedes copiar el comando de cada commit y pegarlo en tu terminal para revisar el código avanzado de cada clase.
 
-1. **Speech-to-Text:** Para convertir voz en texto, OpenAI ofrece el modelo **Whisper**, diseñado para transcribir audio con alta precisión. Basta con proporcionar un archivo de audio para obtener la transcripción correspondiente en el idioma original.
+| Clase                                                | Commit                | Cambios                                                   |
+| ---------------------------------------------------- | --------------------- | --------------------------------------------------------- |
+| Integración de GPT-4o con streaming en PlatziVision  | `git checkout 9875f7` | Integración de respuestas con transmisión en tiempo real  |
+| Soporte de procesamiento de imágenes en PlatziVision | `git checkout 7e2f9c` | Soporte para el procesamiento de imágenes.                |
+| Generación de imágenes con DALL·E 3\*                | `git checkout c9ed81` | Añade la función de generación de imágenes.               |
+| Generación de imágenes en PlatziVision               | `git checkout 45bdda` | Integración de generación de imágenes usando herramientas |
 
-2. **Text-to-Speech:** La funcionalidad de **TTS** permite transformar texto en voz sintetizada utilizando una amplia variedad de voces como `alloy`, `echo`, `fable`, `onyx`, `nova` y `shimmer`.
+\* La clase de _Generación de imágenes con DALL·E 3_ se realizó en el repositorio de `/curso-openai-api`, pero se incluye aquí como referencia que la integramos dentro de la siguiente clase _Generación de imágenes en PlatziVision_.
+
+## 📚 Estructura del proyecto
+
+PlatziVision se compone de 2 partes: una interfaz web y una API. La interfaz web es una aplicación web basada en Next.js que nos permite interactuar con el chatbot. La API es un servidor en Flask que se encarga de procesar las solicitudes de la interfaz web y de interactuar con la librería de OpenAI para las siguientes funcionalidades:
+
+- Respuesta a preguntas en tiempo real (vía streaming)
+- Procesamiento de múltiples imágenes
+- Generación de imágenes
